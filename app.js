@@ -47,19 +47,20 @@ app.post("/compose",(req,res)=>{
 
 
 app.get('/posts/:topic', (req, res) => {
-  const val= req.params.topic
-  const changeValTolowerCase = _.lowerCase(val)
+  const requestedTitle = _.lowerCase(req.params.topic)
   posts.forEach(function(keys){
     const changeToLower = _.lowerCase(keys.title)
-    // console.log(changeToLower)
-    // console.log(changeValTolowerCase)
-    if(changeToLower === changeValTolowerCase){
-      console.log("Match Found!")
-    }else{
-      console.log("No Match Found!")
-    }
+    if(changeToLower === requestedTitle){
+      res.render("post",{
+        title : keys.title,
+        contant : keys.contant
+      })
+    }  
   })
 })
+
+  
+
 
 app.listen(3000,(req,res)=>{
   console.log("Server is initiated on port 3000")
