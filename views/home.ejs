@@ -1,0 +1,17 @@
+<%-include("partials/header")-%>
+
+<h1>Home</h1>
+<p><%= paraSend  %></p>
+
+<%posts.forEach(function(key){%>
+    <h1><%=key.title%></h1>
+    <p><%=key.contant%></p>
+ <%});%>
+
+
+
+
+
+
+
+<%-include("partials/footer")-%>
