@@ -5,7 +5,7 @@
 
 <%posts.forEach(function(key){%>
     <h1><%=key.title%></h1>
-    <p><%=key.contant%></p>
+    <p><%=(key.contant).substring(0,100)%></p>
  <%});%>
 
 
